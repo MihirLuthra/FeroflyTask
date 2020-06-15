@@ -72,20 +72,20 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpZ-x1-ewa">
                                                 <rect key="frame" x="167.5" y="0.0" width="216.5" height="115.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 items ordered" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nF-Rd-ebL">
-                                                        <rect key="frame" x="5" y="20" width="131.5" height="20"/>
-                                                        <fontDescription key="fontDescription" name="Calibri-Bold" family="Calibri" pointSize="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 items ordered" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7nF-Rd-ebL">
+                                                        <rect key="frame" x="5" y="25" width="206.5" height="19"/>
+                                                        <fontDescription key="fontDescription" name="Calibri-Bold" family="Calibri" pointSize="19"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIq-0c-tzH">
-                                                        <rect key="frame" x="5" y="45" width="86" height="20"/>
-                                                        <fontDescription key="fontDescription" name="Calibri-Light" family="Calibri" pointSize="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See details" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sIq-0c-tzH">
+                                                        <rect key="frame" x="5" y="49" width="81.5" height="19"/>
+                                                        <fontDescription key="fontDescription" name="Calibri-Light" family="Calibri" pointSize="19"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7J-ao-VNE">
-                                                        <rect key="frame" x="96" y="45" width="20" height="17"/>
+                                                        <rect key="frame" x="91.5" y="49" width="20" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="6wy-th-epk"/>
                                                             <constraint firstAttribute="height" constant="17" id="mQd-XG-K7h"/>
@@ -95,12 +95,13 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="7nF-Rd-ebL" firstAttribute="centerY" secondItem="PpZ-x1-ewa" secondAttribute="centerY" multiplier="0.6" id="Daj-uW-smc"/>
                                                     <constraint firstItem="7nF-Rd-ebL" firstAttribute="leading" secondItem="PpZ-x1-ewa" secondAttribute="leading" constant="5" id="FSc-nh-rYO"/>
                                                     <constraint firstItem="v7J-ao-VNE" firstAttribute="top" secondItem="7nF-Rd-ebL" secondAttribute="bottom" constant="5" id="I6d-HE-OFp"/>
                                                     <constraint firstItem="sIq-0c-tzH" firstAttribute="top" secondItem="7nF-Rd-ebL" secondAttribute="bottom" constant="5" id="PDz-pN-riD"/>
                                                     <constraint firstItem="sIq-0c-tzH" firstAttribute="leading" secondItem="PpZ-x1-ewa" secondAttribute="leading" constant="5" id="Vmo-K7-Dhf"/>
-                                                    <constraint firstItem="7nF-Rd-ebL" firstAttribute="top" secondItem="PpZ-x1-ewa" secondAttribute="top" constant="20" id="caz-GN-mUS"/>
                                                     <constraint firstItem="v7J-ao-VNE" firstAttribute="leading" secondItem="sIq-0c-tzH" secondAttribute="trailing" constant="5" id="hAA-NU-uQI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="7nF-Rd-ebL" secondAttribute="trailing" constant="5" id="oe3-aL-00I"/>
                                                     <constraint firstItem="sIq-0c-tzH" firstAttribute="leading" secondItem="PpZ-x1-ewa" secondAttribute="leading" constant="5" id="sbR-CV-NXP"/>
                                                 </constraints>
                                             </view>
