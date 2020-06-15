@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "bbq.png",
+      "filename" : "keyboard-left-arrow-button.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "bbq@2x.png",
+      "filename" : "keyboard-left-arrow-button@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "bbq@3x.png",
+      "filename" : "keyboard-left-arrow-button@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
