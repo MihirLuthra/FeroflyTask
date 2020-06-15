@@ -13,6 +13,9 @@
 		044999002496F15800FED313 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044998FE2496F15800FED313 /* Main.storyboard */; };
 		044999022496F15900FED313 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044999012496F15900FED313 /* Assets.xcassets */; };
 		044999052496F15900FED313 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044999032496F15900FED313 /* LaunchScreen.storyboard */; };
+		0449990E2496FE4D00FED313 /* Calibri Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0449990D2496FE4D00FED313 /* Calibri Regular.ttf */; };
+		044999102496FE6900FED313 /* Calibri Bold.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0449990F2496FE6900FED313 /* Calibri Bold.TTF */; };
+		044999122496FF5D00FED313 /* Calibri Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 044999112496FF5D00FED313 /* Calibri Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		044999012496F15900FED313 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		044999042496F15900FED313 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		044999062496F15900FED313 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0449990D2496FE4D00FED313 /* Calibri Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibri Regular.ttf"; sourceTree = "<group>"; };
+		0449990F2496FE6900FED313 /* Calibri Bold.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibri Bold.TTF"; sourceTree = "<group>"; };
+		044999112496FF5D00FED313 /* Calibri Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibri Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 		044998F72496F15800FED313 /* InternshipTask */ = {
 			isa = PBXGroup;
 			children = (
+				0449990C2496FE2100FED313 /* Fonts */,
 				044998F82496F15800FED313 /* AppDelegate.swift */,
 				044998FA2496F15800FED313 /* SceneDelegate.swift */,
 				044998FC2496F15800FED313 /* ViewController.swift */,
@@ -65,6 +72,16 @@
 				044999062496F15900FED313 /* Info.plist */,
 			);
 			path = InternshipTask;
+			sourceTree = "<group>";
+		};
+		0449990C2496FE2100FED313 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0449990F2496FE6900FED313 /* Calibri Bold.TTF */,
+				044999112496FF5D00FED313 /* Calibri Light.ttf */,
+				0449990D2496FE4D00FED313 /* Calibri Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +143,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				044999052496F15900FED313 /* LaunchScreen.storyboard in Resources */,
+				044999122496FF5D00FED313 /* Calibri Light.ttf in Resources */,
+				044999102496FE6900FED313 /* Calibri Bold.TTF in Resources */,
 				044999022496F15900FED313 /* Assets.xcassets in Resources */,
 				044999002496F15800FED313 /* Main.storyboard in Resources */,
+				0449990E2496FE4D00FED313 /* Calibri Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
