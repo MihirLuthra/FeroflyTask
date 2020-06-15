@@ -17,11 +17,23 @@ class MainScreeenVC: UIViewController {
 	"""
 	
 	@IBOutlet weak var addressLabel: UILabel!
-	@IBOutlet weak var reportIssueButton: CircularEdgedButton!
+	@IBOutlet weak var reportIssue: CircularEdgedButton!
+	@IBOutlet weak var trackOrder: UIButton!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		addressLabel.text = address
-		reportIssueButton.isEnabled = false
+		reportIssue.isEnabled = false
+		
+		trackOrder.imageView?.contentMode = .scaleAspectFit
+		trackOrder.imageEdgeInsets = UIEdgeInsets(top: (trackOrder.imageView?.frame.minY)! + 25, left: (trackOrder.imageView?.frame.minX)! - 10, bottom: 30, right: 5)
     }
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "toMapVC" {
+			let destinationVC = segue.destination as! MapVC
+			destinationVC.searchString = address
+			
+		}
+	}
 }
