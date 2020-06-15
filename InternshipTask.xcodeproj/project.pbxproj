@@ -17,6 +17,7 @@
 		044999102496FE6900FED313 /* Calibri Bold.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0449990F2496FE6900FED313 /* Calibri Bold.TTF */; };
 		044999122496FF5D00FED313 /* Calibri Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 044999112496FF5D00FED313 /* Calibri Light.ttf */; };
 		044999142497322300FED313 /* MainScreeenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044999132497322300FED313 /* MainScreeenVC.swift */; };
+		044999162497685400FED313 /* CircularEdgedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044999152497685400FED313 /* CircularEdgedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		0449990F2496FE6900FED313 /* Calibri Bold.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibri Bold.TTF"; sourceTree = "<group>"; };
 		044999112496FF5D00FED313 /* Calibri Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibri Light.ttf"; sourceTree = "<group>"; };
 		044999132497322300FED313 /* MainScreeenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreeenVC.swift; sourceTree = "<group>"; };
+		044999152497685400FED313 /* CircularEdgedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularEdgedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				0449990C2496FE2100FED313 /* Fonts */,
+				044999152497685400FED313 /* CircularEdgedButton.swift */,
 				044998F82496F15800FED313 /* AppDelegate.swift */,
 				044998FA2496F15800FED313 /* SceneDelegate.swift */,
 				044998FC2496F15800FED313 /* ViewController.swift */,
@@ -164,6 +167,7 @@
 				044998FD2496F15800FED313 /* ViewController.swift in Sources */,
 				044999142497322300FED313 /* MainScreeenVC.swift in Sources */,
 				044998F92496F15800FED313 /* AppDelegate.swift in Sources */,
+				044999162497685400FED313 /* CircularEdgedButton.swift in Sources */,
 				044998FB2496F15800FED313 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
