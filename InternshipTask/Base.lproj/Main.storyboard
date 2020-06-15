@@ -64,13 +64,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="115.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="burger" translatesAutoresizingMaskIntoConstraints="NO" id="S8h-Bm-7mq">
-                                                <rect key="frame" x="0.0" y="0.0" width="88" height="115.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="78.5" height="115.5"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="some_food" translatesAutoresizingMaskIntoConstraints="NO" id="ApK-qm-L7R">
-                                                <rect key="frame" x="93" y="0.0" width="88" height="115.5"/>
+                                                <rect key="frame" x="83.5" y="0.0" width="79" height="115.5"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpZ-x1-ewa">
-                                                <rect key="frame" x="186" y="0.0" width="198" height="115.5"/>
+                                                <rect key="frame" x="167.5" y="0.0" width="216.5" height="115.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 items ordered" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nF-Rd-ebL">
                                                         <rect key="frame" x="5" y="20" width="131.5" height="20"/>
@@ -84,19 +84,30 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7J-ao-VNE">
+                                                        <rect key="frame" x="96" y="45" width="20" height="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="20" id="6wy-th-epk"/>
+                                                            <constraint firstAttribute="height" constant="17" id="mQd-XG-K7h"/>
+                                                        </constraints>
+                                                        <state key="normal" image="forward"/>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstItem="7nF-Rd-ebL" firstAttribute="leading" secondItem="PpZ-x1-ewa" secondAttribute="leading" constant="5" id="FSc-nh-rYO"/>
+                                                    <constraint firstItem="v7J-ao-VNE" firstAttribute="top" secondItem="7nF-Rd-ebL" secondAttribute="bottom" constant="5" id="I6d-HE-OFp"/>
                                                     <constraint firstItem="sIq-0c-tzH" firstAttribute="top" secondItem="7nF-Rd-ebL" secondAttribute="bottom" constant="5" id="PDz-pN-riD"/>
                                                     <constraint firstItem="sIq-0c-tzH" firstAttribute="leading" secondItem="PpZ-x1-ewa" secondAttribute="leading" constant="5" id="Vmo-K7-Dhf"/>
                                                     <constraint firstItem="7nF-Rd-ebL" firstAttribute="top" secondItem="PpZ-x1-ewa" secondAttribute="top" constant="20" id="caz-GN-mUS"/>
+                                                    <constraint firstItem="v7J-ao-VNE" firstAttribute="leading" secondItem="sIq-0c-tzH" secondAttribute="trailing" constant="5" id="hAA-NU-uQI"/>
+                                                    <constraint firstItem="sIq-0c-tzH" firstAttribute="leading" secondItem="PpZ-x1-ewa" secondAttribute="leading" constant="5" id="sbR-CV-NXP"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="ApK-qm-L7R" firstAttribute="width" secondItem="S8h-Bm-7mq" secondAttribute="width" id="7Bl-L7-QpP"/>
-                                            <constraint firstItem="PpZ-x1-ewa" firstAttribute="width" secondItem="S8h-Bm-7mq" secondAttribute="width" multiplier="2.25" id="DDQ-1x-jvE"/>
+                                            <constraint firstItem="PpZ-x1-ewa" firstAttribute="width" secondItem="S8h-Bm-7mq" secondAttribute="width" multiplier="2.75" id="DDQ-1x-jvE"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsW-mr-M4V">
@@ -164,6 +175,7 @@
     </scenes>
     <resources>
         <image name="burger" width="122" height="122"/>
+        <image name="forward" width="50" height="50"/>
         <image name="some_food" width="183" height="183"/>
     </resources>
 </document>
