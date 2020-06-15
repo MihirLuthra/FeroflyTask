@@ -181,12 +181,12 @@ class MainScreeenVC: UIViewController {
 		
 		lineView.frame = CGRect(x: startX, y: startY, width: width, height: height)
 		
-		lineView.setGradientBackground(colorOne: K.appThemeColor, colorTwo: UIColor.white)
+		lineView.setGradientBackground(colorOne: K.appThemeColor1, colorTwo : K.appThemeColor2, colorThree : K.appThemeColor3, colorFour: UIColor.white)
 	}
 	
 	func resetLine(lineView: UIView) {
 		lineView.removeGradientBackground()
-		lineView.backgroundColor = K.appThemeColor
+		lineView.backgroundColor = K.appThemeColor2
 	}
 	
 	func scaleCircle(view: UIView, widthConstraint: NSLayoutConstraint, heightConstraint: NSLayoutConstraint, scale: CGFloat) {
