@@ -16,6 +16,7 @@
 		0449990E2496FE4D00FED313 /* Calibri Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0449990D2496FE4D00FED313 /* Calibri Regular.ttf */; };
 		044999102496FE6900FED313 /* Calibri Bold.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0449990F2496FE6900FED313 /* Calibri Bold.TTF */; };
 		044999122496FF5D00FED313 /* Calibri Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 044999112496FF5D00FED313 /* Calibri Light.ttf */; };
+		044999142497322300FED313 /* MainScreeenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044999132497322300FED313 /* MainScreeenVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		0449990D2496FE4D00FED313 /* Calibri Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibri Regular.ttf"; sourceTree = "<group>"; };
 		0449990F2496FE6900FED313 /* Calibri Bold.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibri Bold.TTF"; sourceTree = "<group>"; };
 		044999112496FF5D00FED313 /* Calibri Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibri Light.ttf"; sourceTree = "<group>"; };
+		044999132497322300FED313 /* MainScreeenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreeenVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				044998F82496F15800FED313 /* AppDelegate.swift */,
 				044998FA2496F15800FED313 /* SceneDelegate.swift */,
 				044998FC2496F15800FED313 /* ViewController.swift */,
+				044999132497322300FED313 /* MainScreeenVC.swift */,
 				044998FE2496F15800FED313 /* Main.storyboard */,
 				044999012496F15900FED313 /* Assets.xcassets */,
 				044999032496F15900FED313 /* LaunchScreen.storyboard */,
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				044998FD2496F15800FED313 /* ViewController.swift in Sources */,
+				044999142497322300FED313 /* MainScreeenVC.swift in Sources */,
 				044998F92496F15800FED313 /* AppDelegate.swift in Sources */,
 				044998FB2496F15800FED313 /* SceneDelegate.swift in Sources */,
 			);
