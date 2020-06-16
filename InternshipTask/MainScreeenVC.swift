@@ -112,11 +112,11 @@ class MainScreeenVC: UIViewController {
 			return
 		}
 		
+		updateIcon(icon: deliveryProcessViewIcons[index])
+		
 		if (index > 0) {
 			completeProgressLine(progressLine: progressLines[index - 1], view1: deliveryProcessViewIcons[index - 1].iconView, view2: deliveryProcessViewIcons[index].iconView)
 		}
-		
-		updateIcon(icon: deliveryProcessViewIcons[index])
 		
 		if (index < deliveryProcessViewIcons.count - 1) {
 			startProgressLine(progressLine: progressLines[index], view1: deliveryProcessViewIcons[index].iconView, view2: deliveryProcessViewIcons[index+1].iconView)
@@ -139,18 +139,26 @@ class MainScreeenVC: UIViewController {
 		deliveryProcessView.layoutIfNeeded()
 	}
 	
-	func completeProgressLine(progressLine : UIView, view1 : UIView, view2 : UIView) {
-		progressLine.removeGradientBackground()
-		progressLine.backgroundColor = UIColor(cgColor: pinkGradient.last!)
-	}
-	
-	func startProgressLine(progressLine : UIView, view1 : UIView, view2 : UIView) {
+	func updateProgressLineFrame(progressLine : UIView, view1 : UIView, view2 : UIView) {
 		let x = view1.frame.maxX
 		let y = view1.frame.midY - 1
 		let width = view2.frame.minX - x
 		let height : CGFloat = progressLine.frame.height
 		
 		progressLine.frame = CGRect(x: x, y: y, width: width, height: height)
+	}
+	
+	func completeProgressLine(progressLine : UIView, view1 : UIView, view2 : UIView) {
+		
+		updateProgressLineFrame(progressLine: progressLine, view1: view1, view2: view2)
+		
+		progressLine.removeGradientBackground()
+		progressLine.backgroundColor = UIColor(cgColor: pinkGradient.last!)
+	}
+	
+	func startProgressLine(progressLine : UIView, view1 : UIView, view2 : UIView) {
+		
+		updateProgressLineFrame(progressLine: progressLine, view1: view1, view2: view2)
 
 		progressLine.setGradientBackground(colors: pinkGradient)
 	}
@@ -208,11 +216,12 @@ class MainScreeenVC: UIViewController {
 		heightConstraint.isActive = true
 		
 		iconView.centerYAnchor.constraint(equalTo: superView.centerYAnchor).isActive = true
-		iconView.leadingAnchor.constraint(equalTo: superView.leadingAnchor, constant: superView.frame.midX * xPosMultiplier - iconDiameter/2).isActive = true
+		
+		let xShift = (superView.frame.midX * xPosMultiplier) - superView.frame.midX
+		iconView.centerXAnchor.constraint(equalTo: superView.centerXAnchor, constant: xShift).isActive = true
 		
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.centerYAnchor.constraint(equalTo: superView.centerYAnchor, constant: iconDiameter/2 + 15).isActive = true
-		//label.topAnchor.constraint(equalTo: iconView.centerYAnchor, constant: 10).isActive = true
 		label.centerXAnchor.constraint(equalTo: iconView.centerXAnchor).isActive = true
 		label.widthAnchor.constraint(equalToConstant: iconDiameter * 2).isActive = true
 		label.heightAnchor.constraint(equalToConstant: iconDiameter).isActive = true
