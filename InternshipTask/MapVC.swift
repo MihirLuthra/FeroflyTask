@@ -28,7 +28,6 @@ class MapVC: UIViewController {
 				print("Unable to get location")
 				return
 			}
-			print(response.mapItems)
 			let placemark = response.mapItems[0].placemark
 			self.mapView.removeAnnotations(self.mapView.annotations)
 			let annotation = MKPointAnnotation()
