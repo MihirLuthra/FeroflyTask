@@ -29,6 +29,16 @@ class MainScreeenVC: UIViewController {
 	
 	let iconImageNames = ["Cooking", "Picked", "On way", "Delivered", "Done"]
 	
+	/*
+	An icon is basically an image view inside
+	a view.
+	It can be made a gray dot or retain it's original image.
+	To make it a gray dot, image view's isHidden is set to true
+	and bgcolor is set to light gray.
+	
+	heigh and width constraints are needed to scale up
+	and down from gray dot's size to main icon size & vice versa.
+	*/
 	struct Icon {
 		let iconView : UIView
 		let iconImage : UIImageView
@@ -38,10 +48,12 @@ class MainScreeenVC: UIViewController {
 	
 	var deliveryProcessViewIcons : [Icon] = []
 	var progressLines : [UIView] = []
+	
 	let iconDiameter : CGFloat = 50
 	let scaleValue : CGFloat = 2
 	let deliveryTime : Double = 5
 	var deliveryIndex = 0
+	
 	var deliveryProcessInitDone = false
 	var deliveryProcessDone = false
 	
@@ -54,7 +66,6 @@ class MainScreeenVC: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		//navigationController?.isNavigationBarHidden = true
 		let button = UIButton()
 		button.setImage(UIImage(named: "back"), for: .normal)
 		button.setTitle("Order details", for: .normal)
@@ -74,6 +85,7 @@ class MainScreeenVC: UIViewController {
 		addressLabel.text = address
 		reportIssue.isEnabled = false
 		
+		// adjust image as per the requirement
 		trackOrder.imageView?.contentMode = .scaleAspectFit
 		trackOrder.imageEdgeInsets = UIEdgeInsets(top: (trackOrder.imageView?.frame.minY)! + 25, left: (trackOrder.imageView?.frame.minX)! - 10, bottom: 30, right: 5)
 	}
@@ -103,6 +115,7 @@ class MainScreeenVC: UIViewController {
 	
 	func deliveryProcessInit() {
 		
+		// icon's centerX contrain w.r.t superview multiplier
 		var multiplier : CGFloat = 0.2
 
 		for imageName in iconImageNames {
@@ -110,6 +123,7 @@ class MainScreeenVC: UIViewController {
 			multiplier += 0.4
 		}
 		
+		// progress line is one less than total number of icons
 		for index in 0..<(deliveryProcessViewIcons.count - 1) {
 			progressLines.append(addProgressLineToView(superView: deliveryProcessView, view1: deliveryProcessViewIcons[index].iconView, view2: deliveryProcessViewIcons[index+1].iconView))
 		}
@@ -136,6 +150,7 @@ class MainScreeenVC: UIViewController {
 		}
 		
 		updateIcon(icon: deliveryProcessViewIcons[index])
+		deliveryProcessView.layoutIfNeeded()
 		
 		if (index > 0) {
 			completeProgressLine(progressLine: progressLines[index - 1], view1: deliveryProcessViewIcons[index - 1].iconView, view2: deliveryProcessViewIcons[index].iconView)
@@ -158,10 +173,9 @@ class MainScreeenVC: UIViewController {
 		icon.iconView.layer.cornerRadius = iconDiameter / 2
 		icon.iconView.layer.borderWidth = 1.5
 		icon.iconView.layer.borderColor = UIColor.black.cgColor
-		
-		deliveryProcessView.layoutIfNeeded()
 	}
 	
+	// stretches or contracts progress line w.r.t icons surrounding it
 	func updateProgressLineFrame(progressLine : UIView, view1 : UIView, view2 : UIView) {
 		let x = view1.frame.maxX
 		let y = view1.frame.midY - 1
@@ -171,6 +185,7 @@ class MainScreeenVC: UIViewController {
 		progressLine.frame = CGRect(x: x, y: y, width: width, height: height)
 	}
 	
+	// turn progress link to complete pink
 	func completeProgressLine(progressLine : UIView, view1 : UIView, view2 : UIView) {
 		
 		updateProgressLineFrame(progressLine: progressLine, view1: view1, view2: view2)
@@ -179,6 +194,7 @@ class MainScreeenVC: UIViewController {
 		progressLine.backgroundColor = UIColor(cgColor: pinkGradient.last!)
 	}
 	
+	// turn progress line into gradient showing progress
 	func startProgressLine(progressLine : UIView, view1 : UIView, view2 : UIView) {
 		
 		updateProgressLineFrame(progressLine: progressLine, view1: view1, view2: view2)

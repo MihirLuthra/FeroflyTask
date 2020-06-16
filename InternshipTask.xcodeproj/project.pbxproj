@@ -18,8 +18,7 @@
 		044999142497322300FED313 /* MainScreeenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044999132497322300FED313 /* MainScreeenVC.swift */; };
 		044999162497685400FED313 /* CircularEdgedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044999152497685400FED313 /* CircularEdgedButton.swift */; };
 		044999192497781E00FED313 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044999182497781E00FED313 /* MapVC.swift */; };
-		04527F612497C25300347EB0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04527F602497C25300347EB0 /* Constants.swift */; };
-		04527F632497CA1400347EB0 /* PinkGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04527F622497CA1400347EB0 /* PinkGradient.swift */; };
+		04527F632497CA1400347EB0 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04527F622497CA1400347EB0 /* Gradient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +35,7 @@
 		044999132497322300FED313 /* MainScreeenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreeenVC.swift; sourceTree = "<group>"; };
 		044999152497685400FED313 /* CircularEdgedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularEdgedButton.swift; sourceTree = "<group>"; };
 		044999182497781E00FED313 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
-		04527F602497C25300347EB0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		04527F622497CA1400347EB0 /* PinkGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinkGradient.swift; sourceTree = "<group>"; };
+		04527F622497CA1400347EB0 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				0449990C2496FE2100FED313 /* Fonts */,
-				04527F602497C25300347EB0 /* Constants.swift */,
-				04527F622497CA1400347EB0 /* PinkGradient.swift */,
+				04527F622497CA1400347EB0 /* Gradient.swift */,
 				044999152497685400FED313 /* CircularEdgedButton.swift */,
 				044998F82496F15800FED313 /* AppDelegate.swift */,
 				044998FA2496F15800FED313 /* SceneDelegate.swift */,
@@ -173,8 +170,7 @@
 				044999192497781E00FED313 /* MapVC.swift in Sources */,
 				044999142497322300FED313 /* MainScreeenVC.swift in Sources */,
 				044998F92496F15800FED313 /* AppDelegate.swift in Sources */,
-				04527F612497C25300347EB0 /* Constants.swift in Sources */,
-				04527F632497CA1400347EB0 /* PinkGradient.swift in Sources */,
+				04527F632497CA1400347EB0 /* Gradient.swift in Sources */,
 				044999162497685400FED313 /* CircularEdgedButton.swift in Sources */,
 				044998FB2496F15800FED313 /* SceneDelegate.swift in Sources */,
 			);
@@ -330,7 +326,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mihir.InternshipTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -348,7 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mihir.InternshipTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

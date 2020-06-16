@@ -9,26 +9,26 @@
 import UIKit
 
 extension UIView {
-    
-    func setGradientBackground(colors : [CGColor]) {
+	
+	func setGradientBackground(colors : [CGColor]) {
 		
 		self.backgroundColor = .none
 		
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bounds
+		let gradientLayer = CAGradientLayer()
+		gradientLayer.frame = bounds
 		gradientLayer.colors = colors
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.startPoint = CGPoint(x: 1.0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.0)
-        
-        layer.insertSublayer(gradientLayer, at: 0)
-    }
+		gradientLayer.locations = [0.0, 1.0]
+		gradientLayer.startPoint = CGPoint(x: 1.0, y: 0)
+		gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.0)
+		
+		layer.insertSublayer(gradientLayer, at: 0)
+	}
 	
 	func removeGradientBackground() {
 		guard
 			let idx = layer.sublayers?.firstIndex(where: { $0 is CAGradientLayer })
 			else { return }
-
+		
 		layer.sublayers?.remove(at: idx)
 	}
 }
