@@ -20,14 +20,14 @@ class MainScreeenVC: UIViewController {
 	Mgs Hospital , West Punjabi Bagh, \
 	Pubjabi Bagh, Delhi, 110026, India
 	"""
-
+	
 	@IBOutlet weak var addressLabel: UILabel!
 	@IBOutlet weak var reportIssue: CircularEdgedButton!
 	@IBOutlet weak var trackOrder: UIButton!
 	
 	@IBOutlet weak var deliveryProcessView: UIView!
 	
-	let iconImageNames = ["Cooking", "Picked", "On way", "Delivered", "Done"]
+	let iconImageNames = ["cooking", "picked", "On way", "delivered", "done"]
 	
 	/*
 	An icon is basically an image view inside
@@ -75,7 +75,7 @@ class MainScreeenVC: UIViewController {
 		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
 		navigationItem.leftBarButtonItem?.title = "Order details"
-
+		
 		// Not sure why the above code doesn't add text to bar button
 		
 	}
@@ -117,7 +117,7 @@ class MainScreeenVC: UIViewController {
 		
 		// icon's centerX contrain w.r.t superview multiplier
 		var multiplier : CGFloat = 0.2
-
+		
 		for imageName in iconImageNames {
 			deliveryProcessViewIcons.append(addIconToView(superView: deliveryProcessView, iconDiameter: iconDiameter, imageName : imageName, xPosMultiplier : multiplier))
 			multiplier += 0.4
@@ -130,7 +130,7 @@ class MainScreeenVC: UIViewController {
 	}
 	
 	func startDeliveryProcess() {
-	
+		
 		progressDelivery(index: deliveryIndex)
 		deliveryIndex += 1
 		
@@ -198,7 +198,7 @@ class MainScreeenVC: UIViewController {
 	func startProgressLine(progressLine : UIView, view1 : UIView, view2 : UIView) {
 		
 		updateProgressLineFrame(progressLine: progressLine, view1: view1, view2: view2)
-
+		
 		progressLine.setGradientBackground(colors: pinkGradient)
 	}
 	
@@ -232,7 +232,7 @@ class MainScreeenVC: UIViewController {
 		iconView.addSubview(imageView)
 		
 		let label = UILabel()
-		label.text = imageName
+		label.text = imageName.capitalizingFirstLetter()
 		label.adjustsFontSizeToFitWidth = true
 		label.font = UIFont(name: "Calibri", size: 13)
 		label.textAlignment = .center
@@ -268,5 +268,15 @@ class MainScreeenVC: UIViewController {
 		superView.layoutIfNeeded()
 		
 		return Icon(iconView: iconView, iconImage: imageView, heightConstraint: heightConstraint, widthConstraint: widthConstraint)
+	}
+}
+
+extension String {
+	func capitalizingFirstLetter() -> String {
+		return prefix(1).capitalized + dropFirst()
+	}
+	
+	mutating func capitalizeFirstLetter() {
+		self = self.capitalizingFirstLetter()
 	}
 }
