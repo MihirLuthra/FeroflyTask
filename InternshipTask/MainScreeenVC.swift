@@ -37,6 +37,8 @@ class MainScreeenVC: UIViewController {
 	let scaleValue : CGFloat = 2
 	let deliveryTime : Double = 5
 	var deliveryIndex = 0
+	var deliveryProcessInitDone = false
+	var deliveryProcessDone = false
 	
 	var pinkGradient = [
 		UIColor.lightGray.cgColor,
@@ -51,14 +53,20 @@ class MainScreeenVC: UIViewController {
 		
 		trackOrder.imageView?.contentMode = .scaleAspectFit
 		trackOrder.imageEdgeInsets = UIEdgeInsets(top: (trackOrder.imageView?.frame.minY)! + 25, left: (trackOrder.imageView?.frame.minX)! - 10, bottom: 30, right: 5)
-		
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		deliveryProcessInit()
-		startDeliveryProcess()
+		if !deliveryProcessInitDone {
+			deliveryProcessInit()
+			deliveryProcessInitDone = true
+		}
+		
+		if !deliveryProcessDone {
+			startDeliveryProcess()
+			deliveryProcessDone = true
+		}
 	}
 	
 	
