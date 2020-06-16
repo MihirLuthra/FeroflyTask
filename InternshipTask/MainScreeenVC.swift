@@ -15,47 +15,34 @@ class MainScreeenVC: UIViewController {
 	Back Side of Mgs Hospital , West Punjabi Bagh, \
 	Pubjabi Bagh, Delhi, 110026, India
 	"""
-	@IBOutlet weak var deliveryProcessView: UIView!
-	
+
 	@IBOutlet weak var addressLabel: UILabel!
 	@IBOutlet weak var reportIssue: CircularEdgedButton!
 	@IBOutlet weak var trackOrder: UIButton!
 	
-	var lineWidth : CGFloat!
+	@IBOutlet weak var deliveryProcessView: UIView!
 	
-	@IBOutlet weak var cookingView: UIView!
-	@IBOutlet weak var cookingImageView: UIImageView!
-	@IBOutlet weak var cookingViewWidthConstraint: NSLayoutConstraint!
-	@IBOutlet weak var cookingViewHeightConstraint: NSLayoutConstraint!
-	var cookingStartX : CGFloat!
+	let iconImageNames = ["Cooking", "Picked", "On way", "Delivered", "Done"]
 	
-	@IBOutlet weak var pickedView: UIView!
-	@IBOutlet weak var pickedImageView: UIImageView!
-	@IBOutlet weak var pickedViewWidthConstraint: NSLayoutConstraint!
-	@IBOutlet weak var pickedViewHeightConstraint: NSLayoutConstraint!
-	var pickedStartX : CGFloat!
+	struct Icon {
+		let iconView : UIView
+		let iconImage : UIImageView
+		let heightConstraint : NSLayoutConstraint
+		let widthConstraint : NSLayoutConstraint
+	}
 	
-	@IBOutlet weak var onWayView: UIView!
-	@IBOutlet weak var onWayImageView: UIImageView!
-	@IBOutlet weak var onWayViewWidthConstraint: NSLayoutConstraint!
-	@IBOutlet weak var onWayViewHeightConstraint: NSLayoutConstraint!
-	var oneWayStartX : CGFloat!
+	var deliveryProcessViewIcons : [Icon] = []
+	var progressLines : [UIView] = []
+	let iconDiameter : CGFloat = 50
+	let scaleValue : CGFloat = 2
+	let deliveryTime : Double = 5
+	var deliveryIndex = 0
 	
-	@IBOutlet weak var deliveredView: UIView!
-	@IBOutlet weak var deliveredImageView: UIImageView!
-	@IBOutlet weak var deliveredViewWidthConstraint: NSLayoutConstraint!
-	@IBOutlet weak var deliveredViewHeightConstraint: NSLayoutConstraint!
-	var deliveredStartX : CGFloat!
-	
-	@IBOutlet weak var doneView: UIView!
-	@IBOutlet weak var doneImageView: UIImageView!
-	@IBOutlet weak var doneViewWidthConstraint: NSLayoutConstraint!
-	@IBOutlet weak var doneViewHeightConstraint: NSLayoutConstraint!
-	
-	var cookingToPicked : UIView!
-	var pickedToOnWay : UIView!
-	var onWayToDelivered : UIView!
-	var deliveredToDone : UIView!
+	var pinkGradient = [
+		UIColor.lightGray.cgColor,
+		UIColor(red: 178/255, green: 115/255, blue: 142/255, alpha: 1).cgColor,
+		UIColor(red: 166/255, green: 67/255, blue: 110/255, alpha: 1).cgColor,
+	]
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -70,12 +57,6 @@ class MainScreeenVC: UIViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		lineWidth = pickedView.frame.minX - cookingView.frame.maxX
-		cookingStartX = cookingView.frame.maxX
-		pickedStartX = pickedView.frame.maxX
-		oneWayStartX = onWayView.frame.maxX
-		deliveredStartX = deliveredView.frame.maxX
-		
 		deliveryProcessInit()
 		startDeliveryProcess()
 	}
@@ -89,6 +70,151 @@ class MainScreeenVC: UIViewController {
 		}
 	}
 	
+	func deliveryProcessInit() {
+		
+		var multiplier : CGFloat = 0.2
+
+		for imageName in iconImageNames {
+			deliveryProcessViewIcons.append(addIconToView(superView: deliveryProcessView, iconDiameter: iconDiameter, imageName : imageName, xPosMultiplier : multiplier))
+			multiplier += 0.4
+		}
+		
+		for index in 0..<(deliveryProcessViewIcons.count - 1) {
+			progressLines.append(addProgressLineToView(superView: deliveryProcessView, view1: deliveryProcessViewIcons[index].iconView, view2: deliveryProcessViewIcons[index+1].iconView))
+		}
+	}
+	
+	func startDeliveryProcess() {
+	
+		progressDelivery(index: deliveryIndex)
+		deliveryIndex += 1
+		
+		Timer.scheduledTimer(withTimeInterval: deliveryTime, repeats: true) { (timer) in
+			self.progressDelivery(index: self.deliveryIndex)
+			self.deliveryIndex += 1
+			if self.deliveryIndex >= self.deliveryProcessViewIcons.count {
+				timer.invalidate()
+			}
+		}
+	}
+	
+	func progressDelivery(index : Int) {
+		
+		if (index >= deliveryProcessViewIcons.count) {
+			return
+		}
+		
+		if (index > 0) {
+			completeProgressLine(progressLine: progressLines[index - 1], view1: deliveryProcessViewIcons[index - 1].iconView, view2: deliveryProcessViewIcons[index].iconView)
+		}
+		
+		updateIcon(icon: deliveryProcessViewIcons[index])
+		
+		if (index < deliveryProcessViewIcons.count - 1) {
+			startProgressLine(progressLine: progressLines[index], view1: deliveryProcessViewIcons[index].iconView, view2: deliveryProcessViewIcons[index+1].iconView)
+		}
+	}
+	
+	func updateIcon(icon : Icon) {
+		
+		icon.heightConstraint.constant = iconDiameter
+		icon.widthConstraint.constant = iconDiameter
+		
+		icon.iconView.backgroundColor = .none
+		
+		icon.iconImage.isHidden = false
+		
+		icon.iconView.layer.cornerRadius = iconDiameter / 2
+		icon.iconView.layer.borderWidth = 1.5
+		icon.iconView.layer.borderColor = UIColor.black.cgColor
+		
+		deliveryProcessView.layoutIfNeeded()
+	}
+	
+	func completeProgressLine(progressLine : UIView, view1 : UIView, view2 : UIView) {
+		progressLine.removeGradientBackground()
+		progressLine.backgroundColor = UIColor(cgColor: pinkGradient.last!)
+	}
+	
+	func startProgressLine(progressLine : UIView, view1 : UIView, view2 : UIView) {
+		let x = view1.frame.maxX
+		let y = view1.frame.midY - 1
+		let width = view2.frame.minX - x
+		let height : CGFloat = progressLine.frame.height
+		
+		progressLine.frame = CGRect(x: x, y: y, width: width, height: height)
+
+		progressLine.setGradientBackground(colors: pinkGradient)
+	}
+	
+	func addProgressLineToView(superView : UIView, view1 : UIView, view2 : UIView) -> UIView {
+		let x = view1.frame.maxX
+		let y = view1.frame.midY - 1
+		let width = view2.frame.minX - x
+		let height : CGFloat = 3
+		let progressLine = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
+		
+		progressLine.backgroundColor = .lightGray
+		
+		superView.addSubview(progressLine)
+		
+		return progressLine
+	}
+	
+	func addIconToView(superView : UIView, iconDiameter : CGFloat, imageName : String, xPosMultiplier : CGFloat) -> Icon {
+		
+		let grayDotDiameter = iconDiameter/scaleValue
+		
+		let iconView = UIView()
+		iconView.backgroundColor = .lightGray
+		iconView.layer.cornerRadius = grayDotDiameter / 2
+		
+		superView.addSubview(iconView)
+		
+		let image = UIImage(named: imageName)
+		let imageView = UIImageView(image: image)
+		
+		iconView.addSubview(imageView)
+		
+		let label = UILabel()
+		label.text = imageName
+		label.adjustsFontSizeToFitWidth = true
+		label.font = UIFont(name: "Calibri", size: 13)
+		label.textAlignment = .center
+		
+		superView.addSubview(label)
+		
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		imageView.leadingAnchor.constraint(equalTo: iconView.leadingAnchor, constant: 10).isActive = true
+		imageView.trailingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: -10).isActive = true
+		imageView.topAnchor.constraint(equalTo: iconView.topAnchor, constant: 10).isActive = true
+		imageView.bottomAnchor.constraint(equalTo: iconView.bottomAnchor, constant: -10).isActive = true
+		
+		imageView.isHidden = true
+		
+		iconView.translatesAutoresizingMaskIntoConstraints = false
+		
+		let widthConstraint = iconView.widthAnchor.constraint(equalToConstant: grayDotDiameter)
+		widthConstraint.isActive = true
+		let heightConstraint = iconView.heightAnchor.constraint(equalToConstant: grayDotDiameter)
+		heightConstraint.isActive = true
+		
+		iconView.centerYAnchor.constraint(equalTo: superView.centerYAnchor).isActive = true
+		iconView.leadingAnchor.constraint(equalTo: superView.leadingAnchor, constant: superView.frame.midX * xPosMultiplier - iconDiameter/2).isActive = true
+		
+		label.translatesAutoresizingMaskIntoConstraints = false
+		label.centerYAnchor.constraint(equalTo: superView.centerYAnchor, constant: iconDiameter/2 + 15).isActive = true
+		//label.topAnchor.constraint(equalTo: iconView.centerYAnchor, constant: 10).isActive = true
+		label.centerXAnchor.constraint(equalTo: iconView.centerXAnchor).isActive = true
+		label.widthAnchor.constraint(equalToConstant: iconDiameter * 2).isActive = true
+		label.heightAnchor.constraint(equalToConstant: iconDiameter).isActive = true
+		
+		superView.layoutIfNeeded()
+		
+		return Icon(iconView: iconView, iconImage: imageView, heightConstraint: heightConstraint, widthConstraint: widthConstraint)
+	}
+
+	/*
 	func deliveryProcessInit() {
 
 		turnToGrayDot(wrapperView: cookingView, wrapperImageView: cookingImageView, widthConstraint: cookingViewWidthConstraint, heightConstraint: cookingViewHeightConstraint)
@@ -195,4 +321,5 @@ class MainScreeenVC: UIViewController {
 		
 		view.layer.cornerRadius = widthConstraint.constant / 2
 	}
+*/
 }
