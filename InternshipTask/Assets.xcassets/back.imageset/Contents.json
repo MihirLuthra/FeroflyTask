@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "keyboard-left-arrow-button.png",
+      "filename" : "back.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "keyboard-left-arrow-button@2x.png",
+      "filename" : "back@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "keyboard-left-arrow-button@3x.png",
+      "filename" : "back@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

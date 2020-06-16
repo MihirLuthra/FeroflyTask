@@ -46,6 +46,24 @@ class MainScreeenVC: UIViewController {
 		UIColor(red: 166/255, green: 67/255, blue: 110/255, alpha: 1).cgColor,
 	]
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		//navigationController?.isNavigationBarHidden = true
+		let button = UIButton()
+		button.setImage(UIImage(named: "back"), for: .normal)
+		button.setTitle("Order details", for: .normal)
+		button.titleLabel?.textColor = .black
+		button.titleLabel?.isEnabled = true
+		button.titleLabel?.isHidden = false
+		
+		navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+		navigationItem.leftBarButtonItem?.title = "Order details"
+
+		// Not sure why the above code doesn't add text to bar button
+		
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		addressLabel.text = address
@@ -215,7 +233,7 @@ class MainScreeenVC: UIViewController {
 		let heightConstraint = iconView.heightAnchor.constraint(equalToConstant: grayDotDiameter)
 		heightConstraint.isActive = true
 		
-		iconView.centerYAnchor.constraint(equalTo: superView.centerYAnchor).isActive = true
+		iconView.centerYAnchor.constraint(equalTo: superView.centerYAnchor, constant: -10).isActive = true
 		
 		let xShift = (superView.frame.midX * xPosMultiplier) - superView.frame.midX
 		iconView.centerXAnchor.constraint(equalTo: superView.centerXAnchor, constant: xShift).isActive = true

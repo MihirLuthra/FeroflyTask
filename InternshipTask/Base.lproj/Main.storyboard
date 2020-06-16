@@ -508,7 +508,7 @@
             <point key="canvasLocation" x="1700.0000000000002" y="109.82142857142857"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.96078431369999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="burger" width="122" height="122"/>
         <image name="forward" width="50" height="50"/>
