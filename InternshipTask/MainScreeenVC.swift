@@ -15,6 +15,11 @@ class MainScreeenVC: UIViewController {
 	Back Side of Mgs Hospital , West Punjabi Bagh, \
 	Pubjabi Bagh, Delhi, 110026, India
 	"""
+	
+	let addressForMkMapView = """
+	Mgs Hospital , West Punjabi Bagh, \
+	Pubjabi Bagh, Delhi, 110026, India
+	"""
 
 	@IBOutlet weak var addressLabel: UILabel!
 	@IBOutlet weak var reportIssue: CircularEdgedButton!
@@ -91,7 +96,7 @@ class MainScreeenVC: UIViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "toMapVC" {
 			let destinationVC = segue.destination as! MapVC
-			destinationVC.searchString = address
+			destinationVC.searchString = addressForMkMapView
 			
 		}
 	}
