@@ -69,15 +69,10 @@ class MainScreeenVC: UIViewController {
 		let button = UIButton()
 		button.setImage(UIImage(named: "back"), for: .normal)
 		button.setTitle("Order details", for: .normal)
-		button.titleLabel?.textColor = .black
-		button.titleLabel?.isEnabled = true
-		button.titleLabel?.isHidden = false
+		button.setTitleColor(.black, for: .normal)
 		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
 		navigationItem.leftBarButtonItem?.title = "Order details"
-		
-		// Not sure why the above code doesn't add text to bar button
-		
 	}
 	
 	override func viewDidLoad() {
